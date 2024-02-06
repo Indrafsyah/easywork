@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="material_management_tree" model="ir.ui.view">
+        <field name="name">material.management.material.tree</field>
+        <field name="model">material.management.material</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="material_code"/>
+                <field name="material_name"/>
+                <field name="material_type"/>
+                <field name="material_buy_price"/>
+                <field name="related_supplier"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_material_form" model="ir.ui.view">
+            <field name="name">material.management.material.form</field>
+            <field name="model">material.management.material</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="material_code"/>
+                            <field name="material_name"/>
+                            <field name="material_type"/>
+                            <field name="material_buy_price"/>
+                            <field name="related_supplier"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    
+
+    <record id="material_action" model="ir.actions.act_window">
+        <field name="name">Material Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">material.management.material</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                create your first Materials!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="material_root"
+              name="Materials"
+              sequence="11"/>
+
+    <menuitem id="material_management_root"
+              name="Materials Management"
+              parent="material_root"
+              sequence="11"/>
+
+    <menuitem id="material_management"
+              name="List Materials"
+              parent="material_management_root"
+              action="material_action"
+              sequence="11"/>
+
+</odoo>
